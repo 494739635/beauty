@@ -2,15 +2,19 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.github.494739635'  // 替换为你的 GitHub 用户名或包名
-version = '3.7.51'               // 替换为你的版本号
+group = 'com.github.494739635'
+version = '3.7.53'
+
+task assemble {
+    // 一个空的 assemble 任务，以满足 JitPack 的要求
+}
 
 publishing {
     publications {
         aar(MavenPublication) {
-            groupId = 'com.github.494739635'  // 替换为你的包名
-            artifactId = 'beauty'   // 替换为你的库名
-            version = '3.7.52'      // 替换为你的版本号
+            groupId = 'com.github.494739635'
+            artifactId = 'beauty'
+            version = '3.7.53'
 
             // 指定 .aar 文件的位置
             artifact(file('libs/beautysdk-3.7.5.aar'))
@@ -18,7 +22,7 @@ publishing {
             pom {
                 name = 'Beauty SDK'
                 description = 'A library for beauty SDK features'
-                url = 'https://github.com/494739635/beauty.git'  // 替换为你的仓库地址
+                url = 'https://github.com/494739635/beauty.git'
 
                 licenses {
                     license {
