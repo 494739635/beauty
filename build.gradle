@@ -2,14 +2,51 @@ plugins {
     id 'maven-publish'
 }
 
+group = 'com.github.494739635'  // 替换为你的 GitHub 用户名或包名
+version = '3.7.51'               // 替换为你的版本号
+
 publishing {
     publications {
         aar(MavenPublication) {
             groupId = 'com.github.494739635'  // 替换为你的包名
             artifactId = 'beauty'   // 替换为你的库名
-            version = '3.7.51'            // 替换为你的版本
+            version = '3.7.52'      // 替换为你的版本号
 
-            artifact(file('libs/beautysdk-3.7.5.aar')) // 指定 .aar 文件的位置
+            // 指定 .aar 文件的位置
+            artifact(file('libs/beautysdk-3.7.5.aar'))
+
+            pom {
+                name = 'Beauty SDK'
+                description = 'A library for beauty SDK features'
+                url = 'https://github.com/494739635/beauty.git'  // 替换为你的仓库地址
+
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = '494739635'
+                        name = '494739635'
+                        email = '494739635@qq.com'
+                    }
+                }
+
+                scm {
+                    connection = 'scm:git:git://github.com/494739635/beauty.git'
+                    developerConnection = 'scm:git:ssh://github.com:494739635/beauty.git'
+                    url = 'https://github.com/494739635/beauty'
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            url = uri("${buildDir}/repo")
         }
     }
 }
