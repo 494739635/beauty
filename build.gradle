@@ -1,0 +1,15 @@
+plugins {
+    id 'maven-publish'
+}
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId = 'com.github.494739635'  // 替换为你的包名
+            artifactId = 'beauty'   // 替换为你的库名
+            version = '3.7.5'            // 替换为你的版本
+
+            artifact(file('libs/beautysdk-3.7.5.aar')) // 指定 .aar 文件的位置
+        }
+    }
+}
